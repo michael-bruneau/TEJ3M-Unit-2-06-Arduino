@@ -2,7 +2,7 @@
   Created by: Michael Bruneau
   Created on: March 2025
 
-  This Arduio program displays distance from sonar and truns on LED if an object gets to close to the sonar
+  This Arduino program displays the distance from the sonar and turns on an LED if an object gets too close to the sonar
 */
 
 // variables & constants
@@ -31,7 +31,7 @@ void loop() {
   	delayMicroseconds(trigDelays[1]);
   	digitalWrite(trigPin, LOW);
   
- 	//recieves pulse
+ 	//receives pulse
   	duration = pulseIn(echoPin, HIGH);
       
     // Calculating the distance
