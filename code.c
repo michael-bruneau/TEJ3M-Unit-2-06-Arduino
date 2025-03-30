@@ -2,7 +2,7 @@
   Created by: Michael Bruneau
   Created on: March 2025
 
-  This Arduio program causes micro Servo to to turn back and forth from 180 degress to 0 degrees
+  This Arduio program displays distance from sonar and truns on LED if an object gets to close to the sonar
 */
 
 // variables & constants
@@ -12,6 +12,7 @@ const int LEDPowerPin = 8;
 long duration;
 int distance = 0;
 int trigDelays[] = {2, 10};
+int too_close = 20;
 const float speedOfSound = 0.034;
 
 void setup()
@@ -42,7 +43,7 @@ void loop() {
     Serial.println(" cm");
   
   	// Turns on LED if a object gets close to the sonar
-  	if (distance <= 20) {
+  	if (distance <= too_close) {
     	digitalWrite(LEDPowerPin, HIGH);
     } else {
     	digitalWrite(LEDPowerPin, LOW);
