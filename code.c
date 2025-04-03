@@ -12,7 +12,7 @@ const int LED__POWER_PIN = 8;
 long duration;
 int distance = 0;
 int trigDelays[] = {2, 10};
-int too_close = 20;
+int TOO_CLOSE = 20;
 const float SPEED_OF_SOUND = 0.034;
 
 void setup()
@@ -43,7 +43,7 @@ void loop() {
     Serial.println(" cm");
   
   	// Turns on LED if a object gets close to the sonar
-  	if (distance <= too_close) {
+  	if (distance <= TOO_CLOSE) {
     	digitalWrite(LED__POWER_PIN, HIGH);
     } else {
     	digitalWrite(LED__POWER_PIN, LOW);
