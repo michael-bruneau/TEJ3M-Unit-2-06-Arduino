@@ -6,8 +6,8 @@
 */
 
 // variables & constants
-const int TRIG_PIN = 10;
-const int ECHO_PIN = 11;
+const int TRIG_PIN = 11;
+const int ECHO_PIN = 10;
 const int LED__POWER_PIN = 8;
 long duration;
 int distance = 0;
