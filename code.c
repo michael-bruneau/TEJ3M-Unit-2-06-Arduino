@@ -6,36 +6,36 @@
 */
 
 // variables & constants
-const int trigPin = 10;
-const int echoPin = 11;
-const int LEDPowerPin = 8;
+const int TRIG_PIN = 10;
+const int ECHO_PIN = 11;
+const int LED__POWER_PIN = 8;
 long duration;
 int distance = 0;
 int trigDelays[] = {2, 10};
 int too_close = 20;
-const float speedOfSound = 0.034;
+const float SPEED_OF_SOUND = 0.034;
 
 void setup()
 {
   // Setups pins
-  pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
-  pinMode(echoPin, INPUT); // Sets the echoPin as an Input
+  pinMode(TRIG_PIN, OUTPUT); // Sets the trigPin as an Output
+  pinMode(ECHO_PIN, INPUT); // Sets the echoPin as an Input
   Serial.begin(9600); // Starts the serial communication
 }
 
 void loop() {
   	// sends pulse
-  	digitalWrite(trigPin, LOW);
+  	digitalWrite(TRIG_PIN, LOW);
   	delayMicroseconds(trigDelays[0]);
-  	digitalWrite(trigPin, HIGH);
+  	digitalWrite(TRIG_PIN, HIGH);
   	delayMicroseconds(trigDelays[1]);
-  	digitalWrite(trigPin, LOW);
+  	digitalWrite(TRIG_PIN, LOW);
   
  	//receives pulse
-  	duration = pulseIn(echoPin, HIGH);
+  	duration = pulseIn(ECHO_PIN, HIGH);
       
     // Calculating the distance
-  	distance = duration * speedOfSound / 2;
+  	distance = duration * SPEED_OF_SOUND / 2;
 
   	// Prints the distance on the Serial Monitor
   	Serial.print("Distance: ");
@@ -44,9 +44,9 @@ void loop() {
   
   	// Turns on LED if a object gets close to the sonar
   	if (distance <= too_close) {
-    	digitalWrite(LEDPowerPin, HIGH);
+    	digitalWrite(LED__POWER_PIN, HIGH);
     } else {
-    	digitalWrite(LEDPowerPin, LOW);
+    	digitalWrite(LED__POWER_PIN, LOW);
     }
         
 }
